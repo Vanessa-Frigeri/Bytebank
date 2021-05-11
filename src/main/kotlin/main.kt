@@ -1,42 +1,43 @@
 fun main() {
     println("Bem vindo ao Bytebank")
 
-//    var contaVan = Conta()
-//    var contaTami = Conta()
+    var contaVan = Conta(titular = "Vanessa", numero = 1000)
+    var contaTami = Conta(titular ="Tamila", numero = 1002)
+
+
+//    contaVan.fazerDeposito(250.0)
 //
-//    contaVan.titularConta = "Vanessa"
-//    contaVan.numeroConta = 100
-//    contaVan.setSaldo(50.0)
+//    contaTami.fazerDeposito(40.0)
 //
-//    contaTami.titularConta = "Tamila"
-//    contaTami.numeroConta = 101
-//    contaTami.setSaldo(40.0)
-//
-//    contaVan.fazerDeposito(150.0)
-//    println(contaVan.getSaldo())
+//    contaVan.fazerDeposito(50.0)
+//    println(contaVan.saldoConta)
 //    println()
 //
 //    contaVan.fazerSaque(50.0)
-//    println(contaVan.getSaldo())
+//    println(contaVan.saldoConta)
 //    println()
 //
 //    contaVan.fazerSaque(500.0)
-//    println(contaVan.getSaldo())
+//    println(contaVan.saldoConta)
 //    println()
 //
 //    contaVan.fazerTransferencia(contaTami, 140.0)
-//    println(contaVan.getSaldo())
-//    println(contaTami.getSaldo())
+//    println(contaVan.saldoConta)
+//    println(contaTami.saldoConta)
 //    println()
 }
 
-class Conta {
-    var titularConta: String = ""
-    var numeroConta: Int = 0
-    private var saldoConta: Double = 0.0
+class Conta(
+    var titular: String,
+    val numero: Int
+) {
+    var saldoConta: Double = 0.0
+        private set
 
     fun fazerDeposito(valorDeposito: Double) {
-        this.saldoConta += valorDeposito
+        if (valorDeposito > 0) {
+            this.saldoConta += valorDeposito
+        }
     }
 
     fun fazerSaque(valorSaque: Double): Boolean {
@@ -59,15 +60,6 @@ class Conta {
         return false
     }
 
-    fun getSaldo(): Double {
-        return this.saldoConta
-    }
-
-    fun setSaldo(valorSaldo: Double) {
-        if (valorSaldo > 0) {
-            this.saldoConta = valorSaldo
-        }
-    }
 }
 
 fun testaLacos() {
