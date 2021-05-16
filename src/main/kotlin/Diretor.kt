@@ -1,8 +1,9 @@
-class Gerente(
+class Diretor(
     name: String,
     cpf: String,
     salary: Double,
-    password: Int
+    password: Int,
+    val plr: Double
 ) : Employee(
     employeeName = name,
     employeeCPF = cpf,
@@ -12,7 +13,7 @@ class Gerente(
 
     override val calculateBonus: Double
         get() {
-            return super.calculateBonus + employeeSalary
+            return super.calculateBonus + employeeSalary + plr
         }
 
     override fun employeeAuthentication(password: Int): Boolean {
